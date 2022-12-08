@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #262626;
+}
+
+/*タイトル*/
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+/*サブタイトル*/
+.sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+}
+
+/*水のボールアニメーション*/
+.center {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    cursor: pointer;
+}
+
+.wave {
+    background-color: #3f68c5;
+    position: absolute;
+    top: 110%;
+    height: 200%;
+    width: 200%;
+    border-radius: 38%;
+    left: -50%;
+    transform: rotate(360deg);
+    transition: all 5s ease;
+    animation: wave 30s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(3600deg);
+    }
+}
+
+.circle:hover .wave {
+    top: 0%;
+}
+
+/*水ordie*/
+.water {
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    padding: 7px 0 0 0;
+    font-weight: bold;
+    color: #3f68c5;
+    transition: 0.5s;
+    background-color: #fff;
+}
+
+.water:hover {
+    color: #fff;
+    background: #3f68c5;
+}
+
+/*die ボタン*/
+.die {
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    padding: 7px 0 0 0;
+    font-weight: bold;
+    color: crimson;
+    transition: 0.5s;
+    background-color: #fff;
+}
+
+.die:hover {
+    color: #fff;
+    background: crimson;
+}
+
+/*使い方*/
+.use {
+    text-align: center;
+    width: 120px;
+    height: 40px;
+    padding: 7px 0 0 0;
+    font-weight: bold;
+    color: yellow;
+    transition: 0.5s;
+    background-color: #fff;
+}
+
+.use:hover {
+    color: #fff;
+    background: yellow;
+}
+
+/*ボタンを真ん中へ*/
+.button-center {
+    justify-content: space-around;
+    text-align: center;
+    display: flex;
+    margin-top: 40px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="water.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>湧き水で生きる</title>
+</head>
+
+<body>
+    <h1>湧き水API</h1>
+    <button id="btn">湧き水取得</button>
+    <div id="output"></div>
+
+    <img src="img/map.png">
+    <a href="https://goo.gl/maps/ch64t8R6Yy3t8sZH8">詳細はこちら</a>
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- <script -->
+    <!-- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_CeP8pFns9uqftpHTsBkbqPAyyCPvlO4&libraries=places&callback=initAutocomplete&libraries=places&v=weekly" -->
+    <!-- async defer> -->
+    <!-- </script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const requestUrl =
+            "https://livlog.xyz/webapi/springWater?q=山口県";
+
+        axios
+            .get(requestUrl)
+            .then(function (response) {
+                // リクエスト成功時の処理（responseに結果が入っている）
+                //console.log(response.data.result[0].name);
+                const water = [];
+                response.data.result.forEach(element => {
+                    water.push(`<p>${element.name}</p>`);
+                });
+                console.log(water)
+                $("#output").html(water)
+            })
+    </script>
+
+</body>
+
+</html>
